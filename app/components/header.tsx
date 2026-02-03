@@ -1,5 +1,7 @@
 // app/Header.tsx
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface HeaderProps {
   title: string;
@@ -7,24 +9,32 @@ interface HeaderProps {
 }
 
 export default function Header({ title, image }: HeaderProps) {
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setOffset(window.scrollY * 0.4); // Adjust 0.4 for speed
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header className="relative w-full h-[250px] overflow-hidden">
-      {/* Background Image */}
-      <img 
-        src={image} 
-        alt={title} 
-        className="absolute inset-0 w-full h-full object-cover" 
+      <div 
+        className="absolute inset-0 w-full h-[150%]" // Extra height for movement
+        style={{ 
+          backgroundImage: `url(${image})`,
+          backgroundPosition: 'center', 
+          backgroundSize: 'cover',
+          transform: `translateY(${offset}px)`, // The parallax movement
+          top: '-25%' // Centers the oversized image initially
+        }}
       />
       
-      {/* Centered Title Overlay */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pt-10">
-        <h1 className="w-full text-center text-white text-4xl font-bold bg-black/20 py-2">
-          {title}
-        </h1>
+      <div className="relative z-10 flex h-full items-center justify-center bg-black/30">
+        <h1 className="text-white text-4xl font-bold">{title}</h1>
       </div>
 
-      {/* Optional Navigation Overlay */}
-      <nav className="absolute top-4 right-4 flex gap-4 text-white font-medium drop-shadow-md">
+      <nav className="absolute top-4 right-4 z-20 flex gap-4 text-white font-medium">
         <Link href="/" className="hover:underline">Home</Link>
         <Link href="/about" className="hover:underline">About</Link>
       </nav>

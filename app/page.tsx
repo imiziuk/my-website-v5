@@ -10,10 +10,9 @@ interface NavItem {
             }
 
           const navItems: NavItem[] = [
-  { id: 1, img: "/img1.jpg", path: "/projects", alt: "Projects" },
-  { id: 2, img: "/img2.jpg", path: "/skills", alt: "Skills" },
-  { id: 3, img: "/img3.jpg", path: "/experience", alt: "Experience" },
-  { id: 4, img: "/img4.jpg", path: "/contact", alt: "Contact" },
+  { id: 1, img: "/chronoment.jpg", path: "/projects", alt: "Projects" },
+  { id: 2, img: "/3.png", path: "/skills", alt: "Skills" },
+  { id: 3, img: "/ca.gif", path: "/experience", alt: "Experience" },
 ];
 
 
@@ -24,25 +23,26 @@ export default function Page() {
       <Header title="Ivan Miziuk"         image="/bg.jpg"  />
 
       {/* 2. Centered Body Container */}
-      <div className="max-w-4xl mx-auto bg-[#d1d1d1] pt-8 shadow-lg">
+      <div className=" pt-15 max-w-4xl mx-auto bg-[#d1d1d1] pt-8 shadow-lg">
       <div className="pl-8 pr-8">
         {/* Intro Section */}
         <section className="">
           
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="pb-8 flex flex-col md:flex-row gap-6">
             <img 
                 src="me.jpg" 
                 alt="Profile or Project" 
-                className="w-100 h-100 p-6 rounded-full object-cover md:mx-0"
+                className="w-100 h-100 p-6 rounded-full object-cover md:mx-0 border-4 border-[#39352F]"
               />
-            <p className="prl-6 flex-1">
+              <div className="prl-6 flex-1">
           <h2 className="text-xl font-bold text-center mb-6">Hello and Welcome</h2>
-            I am Aspiring Computer Scientist who is Facinted about the web Computer Networking, Game Development, and Software Development. On this page you will learn more about how I got introduced to computer science field, life changing project I has been working on, and for the final, hobbies I have outside the field.      
-            
-          <div className="p-2"><ContactButton/></div></p>
+                       <p >
+ I am Aspiring Computer Scientist who is Facinted about the web Computer Networking, Game Development, and Software Development. On this page you will learn more about how I got introduced to computer science field, life changing project I has been working on, and for the final, hobbies I have outside the field.      
+            </p>
+          <div className="p-2"><ContactButton/></div></div>
             </div>
         </section>
-        <div className="bg-[#39352F] p-0.5 "></div><br/>
+        <div className="bg-[#d67d7d] p-0.5 "></div><br/>
 
         {/* Introduction Section */}
         <section className="mb-12">
@@ -66,8 +66,16 @@ The first time I was introduced to programming happened because I wanted to crea
         <div className="p-10 mt-8">
           <h3 className="text-lg font-semibold mb-3">Project Showreel</h3>
           <div className="aspect-video w-full">
+            <iframe 
+              className="w-full h-full rounded-xl shadow-md" 
+              src="https://www.youtube.com/embed/pWhpKTOVlno?si=XsQAVSd-nybF8dae" 
+              title="YouTube video player" 
+              frameBorder="0" // Changed to camelCase
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen // Changed to camelCase
+            ></iframe>
 
-            <iframe className="w-full h-full rounded-xl shadow-md" src="https://www.youtube.com/embed/pWhpKTOVlno?si=XsQAVSd-nybF8dae" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
           
@@ -83,20 +91,23 @@ The first time I was introduced to programming happened because I wanted to crea
           </div>
 
 
-        <div className="bg-[#39352F] p-0.5 "></div>
+        <div className="bg-[#d67d7d] p-0.5 "></div>
 
-        <div className="flex justify-center gap-10 py-6">
+        <div className="flex justify-center gap-25 py-6">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={item.path}
               className="relative group flex-1 aspect-square max-w-[150px] overflow-hidden rounded-xl bg-gray-200 transition-transform hover:scale-105 active:scale-95"
             >
+              <div className="bg-[#39352F] p-2">
               <img
                 src={item.img}
                 alt={item.alt}
-                className="w-full h-full object-cover"
-              />
+                                className="w-100 h-100 p-6 object-cover md:mx-0"
+
+                className="h-full w-full"
+              /></div>
               {/* Subtle overlay on hover */}
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
@@ -104,7 +115,7 @@ The first time I was introduced to programming happened because I wanted to crea
           ))}
           
         </div>
-        <div className="bg-[#39352F] p-0.5 "></div><br/>
+        <div className="bg-[#d67d7d] p-0.5 "></div><br/>
 
 
         </section>
