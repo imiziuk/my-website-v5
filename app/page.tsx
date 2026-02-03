@@ -1,7 +1,7 @@
 import Header from "./components/header";
 import Footing from "./components/footing";
 import ContactButton from "./components/contact_me"
-
+import Nav from "./components/nav"; 
 interface NavItem {
               id: number;
               img: string;
@@ -18,137 +18,76 @@ interface NavItem {
 
 export default function Page() {
   return (
-    <main className="bg-[#2d2a26] min-h-screen">
-      {/* 1. Header is full width at the top */}
-      <Header title="Ivan Miziuk"         image="/bg.jpg"  />
+    <main className="bg-[#2d2a26] min-h-screen text-[#39352f]">
+      {/* 1. Full Width Header */}
+      <Header title="Ivan Miziuk" image="/bg.jpg" />
+      
+      {/* 2. Navigation bar stays fixed or top */}
+      <Nav />
 
-      {/* 2. Centered Body Container */}
-      <div className=" pt-15 max-w-4xl mx-auto bg-[#d1d1d1] pt-8 shadow-lg">
-      <div className="pl-8 pr-8">
-        {/* Intro Section */}
-        <section className="">
+      {/* 3. Main Body - This is where the magic happens */}
+      <div className="max-w-6xl mx-auto bg-[#d1d1d1] shadow-2xl min-h-[70vh] flex flex-col md:flex-row">
+        
+        {/* LEFT COLUMN: Identity (The "Who") */}
+        <section className="w-full md:w-1/3 p-8 border-r border-[#b8b8b8] flex flex-col items-center text-center md:text-left">
+          <img 
+            src="me.jpg" 
+            alt="Ivan Miziuk" 
+            className="w-48 h-48 rounded-full object-cover border-4 border-[#39352F] shadow-md mb-6"
+          />
+          <h1 className="text-3xl font-black uppercase tracking-tight mb-2">Ivan Miziuk</h1>
+          <p className="text-sm font-bold text-[#d67d7d] mb-4">CSU CHICO • CLASS OF 2026</p>
           
-          <div className="pb-8 flex flex-col md:flex-row gap-6">
-            <img 
-                src="me.jpg" 
-                alt="Profile or Project" 
-                className="w-100 h-100 p-6 rounded-full object-cover md:mx-0 border-4 border-[#39352F]"
-              />
-              <div className="prl-6 flex-1">
-          <h2 className="text-xl font-bold text-center mb-6">Hello and Welcome</h2>
-                       <p >
- I am Aspiring Computer Scientist who is Facinted about the web Computer Networking, Game Development, and Software Development. On this page you will learn more about how I got introduced to computer science field, life changing project I has been working on, and for the final, hobbies I have outside the field.      
-            </p>
-          <div className="p-2"><ContactButton/></div></div>
+          <div className="space-y-2 text-sm mb-6">
+            <p><strong>Major:</strong> Computer Science</p>
+            <p><strong>Focus:</strong> Systems & Web Dev</p>
+            <p><strong>Location:</strong> Chico, CA</p>
+          </div>
+
+          <div className="w-full pt-4 border-t border-[#b8b8b8]">
+            <ContactButton />
+          </div>
+        </section>
+
+        {/* RIGHT COLUMN: The "Goods" (The "What") */}
+        <section className="flex-1 p-8 bg-[#e0e0e0]">
+          <h2 className="text-2xl font-bold mb-6 flex items-center">
+            <span className="bg-[#d67d7d] w-8 h-1 mr-3"></span>
+            Technical Arsenal
+          </h2>
+
+          {/* Quick Stats Grid */}
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="bg-[#d1d1d1] p-4 rounded border-l-4 border-[#39352f]">
+              <span className="text-xs uppercase text-gray-500 block">Languages</span>
+              <p className="font-mono font-bold">Java, Python, C++, TS</p>
             </div>
-        </section>
-        <div className="bg-[#d67d7d] p-0.5 "></div><br/>
-
-        {/* Introduction Section */}
-        <section className="mb-12">
-          <h2 className="text-xl font-bold text-center mb-6">My Introduction to Computer Science</h2>
-          <div className="flex flex-col md:flex-row gap-6">
-            
-            <div className="flex-1 space-y-4">
-              
-              <p className="p-6">
-The first time I was introduced to programming happened because I wanted to create a video game and play it with my little brother. Starting with GameStudio I made a simple game prototype where two plaeyrs can walk arround the map, collect coins, and solve puzzles. Me and my little brother had fun. Then I wanted to make more safisticated games, so I started to watch Unity3D tutorials, while learning C# and programing convensions              </p>
-              </div>
-               <div><div className="bg-[#39352F]"><img 
-                src="gmk.png" 
-                alt="Profile or Project" 
-                className="w-100 h-100 p-6 object-cover"
-                              /></div>
-          </div></div>
-          <p className="p-6">My passion to Computer Science was born when I found a YouTube video on how to create Cellular Automaton that simulates evolution of living organism. And by that time I was already familiar with C# so I implemented my own cellular automaton based on the similar rules with some modification. As time passes by I still comeback to this project, improving it and building it in different environement such as Unity3D + OpenGL and CUDA.</p>
-          
-
-        <div className="p-10 mt-8">
-          <h3 className="text-lg font-semibold mb-3">Project Showreel</h3>
-          <div className="aspect-video w-full">
-            <iframe 
-              className="w-full h-full rounded-xl shadow-md" 
-              src="https://www.youtube.com/embed/pWhpKTOVlno?si=XsQAVSd-nybF8dae" 
-              title="YouTube video player" 
-              frameBorder="0" // Changed to camelCase
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerPolicy="strict-origin-when-cross-origin" 
-              allowFullScreen // Changed to camelCase
-            ></iframe>
-
-          </div>
-        </div>
-          
-          <p className="p-6">Game Development and Evolution Simulation has inspiered me to completly dive into the creative work of computer Science field.</p>
-            
-        </section>
-
-        {/* Game Development Section */}
-        <section className="mb-12">
-          <h2 className="text-xl font-bold text-center mb-6">A Burst of Ideas</h2>
-          <div className="flex flex-col md:flex-row gap-6">
-            <p className="p-6">During my Computer Science exploration, I have learned that the filed is much deeper and vast then I have imagined. Thus, focusing on Game Development, Reverse Engineering, Network Communication, and Utilization of Agentic AI for Game Dvelopment. </p>
+            <div className="bg-[#d1d1d1] p-4 rounded border-l-4 border-[#39352f]">
+              <span className="text-xs uppercase text-gray-500 block">Tools</span>
+              <p className="font-mono font-bold">React, Next.js, Git, AWS</p>
+            </div>
           </div>
 
-
-        <div className="bg-[#d67d7d] p-0.5 "></div>
-
-        <div className="flex justify-center gap-25 py-6">
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={item.path}
-              className="relative group flex-1 aspect-square max-w-[150px] overflow-hidden rounded-xl bg-gray-200 transition-transform hover:scale-105 active:scale-95"
-            >
-              <div className="bg-[#39352F] p-2">
-              <img
-                src={item.img}
-                alt={item.alt}
-                                className="w-100 h-100 p-6 object-cover md:mx-0"
-
-                className="h-full w-full"
-              /></div>
-              {/* Subtle overlay on hover */}
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
-            
-          ))}
+          <h2 className="text-2xl font-bold mb-6 flex items-center">
+            <span className="bg-[#39352f] w-8 h-1 mr-3"></span>
+            Active Deployments
+          </h2>
           
-        </div>
-        <div className="bg-[#d67d7d] p-0.5 "></div><br/>
-
-
-        </section>
-
-        {/* Hobbies Section */}
-        <section className="mb-12">
-          <h2 className="text-xl font-bold text-center mb-6">Hobbies Outside the Field</h2>
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex-1 space-y-4">
-              <p className="p-6">
-Computer Science is one of my field of interests However, I also enjoy tutoring and playing instruments. 
-
-Over the years I have been tutoring Math and Computer Science subjects. The most interesting to me is the preparation, answering questions, and finding ways to better explain the material so each individual understands the subject. This experience has significantly improved my communication skills and my ability to simplify complex problems, which I apply when documenting code or collaborating with a team 
-
-I have also been practicing playing multiple musical instruments such as flute, guitar, piano, and violin. I play fantasies in Dark Academia Theme, Ukrainian folk songs, and some classical pieces. I mostly play for self amusement .
-              </p>
+          {/* Project Preview Snippets */}
+          <div className="space-y-4">
+            <div className="group p-4 hover:bg-[#d67d7d] hover:text-white transition-all cursor-pointer rounded border border-transparent hover:border-[#39352f]">
+              <h3 className="font-bold">Project ChronoMent</h3>
+              <p className="text-sm opacity-80">Full-stack scheduling engine built for student productivity.</p>
+            </div>
+            <div className="group p-4 hover:bg-[#d67d7d] hover:text-white transition-all cursor-pointer rounded border border-transparent hover:border-[#39352f]">
+              <h3 className="font-bold">Wildcat Logic Sim</h3>
+              <p className="text-sm opacity-80">Visualizing binary gate logic for CSCI 221 coursework.</p>
             </div>
           </div>
         </section>
-
-        {/* Future Section */}
-        <section>
-          <h2 className="text-xl font-bold text-center mb-6">Striving for the Future</h2>
-          <div className="flex flex-col md:flex-row gap-6">
-            <p className="flex-1 p-6">
-For the future I am planning to master my understanding in Network Management, Game Development, and being proficient in using various Stacks to produce efficient, scalable products and mentor future programmers to the field.
-</p>          </div>
-        </section>
-
-
-        </div>
-      <Footing />
       </div>
+
+      <Footing />
     </main>
   );
 }

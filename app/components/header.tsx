@@ -2,7 +2,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import Nav from "./nav";
 interface HeaderProps {
   title: string;
   image: string;
@@ -34,10 +34,8 @@ export default function Header({ title, image }: HeaderProps) {
         <h1 className="text-white text-4xl font-bold">{title}</h1>
       </div>
 
-      <nav className="absolute top-4 right-4 z-20 flex gap-4 text-white font-medium">
-        <Link href="/" className="hover:underline">Home</Link>
-        <Link href="/about" className="hover:underline">About</Link>
-      </nav>
+      
+
     </header>
   );
 }
