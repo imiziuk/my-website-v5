@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 function GallerySection() {
   // 1. Add your images here. Use relative paths (e.g., "/ca1.gif" if in public folder)
   const galleryImages = [
@@ -7,8 +8,7 @@ function GallerySection() {
     // Add more images here...
     // { src: "/ca4.gif", alt: "Mutation Logic" },
   ];
-
-  const [selectedImage, setSelectedImage] = useState(null);
+const [selectedImage, setSelectedImage] = useState<any>(null);
 
   return (
     <>

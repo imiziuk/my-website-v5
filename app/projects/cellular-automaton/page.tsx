@@ -27,9 +27,8 @@ const GALLERY_IMAGES = [
     caption: "Multi-dimensional RGB Interaction, Bird",
   },
 ];
-
+function RuleTab({ title, children }: { title: string; children: React.ReactNode }) {
 // Reusable Component for the Expandable Tabs
-function RuleTab({ title, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

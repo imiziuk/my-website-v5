@@ -11,9 +11,9 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { id: 1, img: "/chronoment.jpg", path: "/projects", alt: "Projects" },
-  { id: 2, img: "/3.png", path: "/skills", alt: "Skills" },
-  { id: 3, img: "/ca.gif", path: "/experience", alt: "Experience" },
+  { id: 1, img: "/chronoment.jpg", path: "/projects/game-dev", alt: "GameDev" },
+  { id: 2, img: "/3.png", path: "/projects/hobbit-mod", alt: "Multiplayer" },
+  { id: 3, img: "/ca.gif", path: "/projects/cellular-automaton", alt: "Simulations" },
 ];
 
 export default function Page() {

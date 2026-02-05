@@ -52,7 +52,7 @@ export default function ContactPage() {
             <div className="flex item-centered justify-center">
               {" "}
               <img
-                src="/mer.png"
+                src="/mel.png"
                 alt="Ivan Miziuk"
                 className="w-45 h-45 rounded-full object-cover border-4 border-[#39352F] shadow-md mb-6"
               />
