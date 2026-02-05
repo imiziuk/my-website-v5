@@ -1,7 +1,70 @@
+"use client"; // Required for useState in Next.js App Router
+
+import { useState } from "react";
 import Header from "@/app/components/header";
 import Footing from "@/app/components/footing";
 import ContactButton from "@/app/components/contact_me";
 import Nav from "@/app/components/nav";
+
+// DATA: Add your real image paths here later (e.g., "/screenshots/evo1.jpg")
+const GALLERY_IMAGES = [
+  {
+    id: 1,
+    src: "../mona.png",
+    alt: "Genetic Learning Iteration",
+    caption: "Genetic Learning Iteration",
+  },
+  {
+    id: 2,
+    src: "../energy.png",
+    alt: "Energy Distribution Map",
+    caption: "Energy Distribution Map",
+  },
+  {
+    id: 3,
+    src: "../rgb.png",
+    alt: "RGB Cellular Interaction",
+    caption: "Multi-dimensional RGB Interaction, Bird",
+  },
+];
+
+// Reusable Component for the Expandable Tabs
+function RuleTab({ title, children }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="bg-white rounded shadow-sm border-l-4 border-[#d67d7d] overflow-hidden transition-all duration-300">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors group"
+      >
+        <h4 className="font-bold text-sm uppercase text-gray-500 group-hover:text-[#d67d7d] transition-colors">
+          {title}
+        </h4>
+        <div className="relative w-6 h-6 flex items-center justify-center">
+          {/* Animated Plus/Minus Icon */}
+          <span
+            className={`absolute w-4 h-0.5 bg-[#d67d7d] transition-transform duration-300 ${
+              isOpen ? "rotate-180" : "rotate-90"
+            }`}
+          ></span>
+          <span
+            className={`absolute w-4 h-0.5 bg-[#d67d7d] transition-transform duration-300 ${
+              isOpen ? "rotate-180" : "rotate-0"
+            }`}
+          ></span>
+        </div>
+      </button>
+
+      {/* Content Area */}
+      {isOpen && (
+        <div className="px-6 pb-6 border-t border-gray-100 animate-fadeIn">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function CellularAutomatonPage() {
   return (
@@ -84,7 +147,7 @@ export default function CellularAutomatonPage() {
           <a
             href="https://github.com/imiziuk/CellularAutomaton"
             target="_blank"
-            className="p-8 bg-[#39352f] text-white flex items-center justify-center group flex flex-col items-center gap-2 hover:bg-[#d67d7d] transition-colors cursor-pointer"
+            className="p-8 bg-[#39352f] text-white flex flex-col items-center justify-center group gap-2 hover:bg-[#d67d7d] transition-colors cursor-pointer"
           >
             <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -118,22 +181,32 @@ export default function CellularAutomatonPage() {
               </p>
               <p className="leading-relaxed">
                 In the first implementation, all calculations were performed on
-                the CPU. So I left this project for some time, focusing on video
-                game development. While developing games, I encountered shading
-                algorithms and raycasting using the Graphics Card (GPU). The
-                multithreading abilities inspired me to come back to my Cellular
-                Automata algorithm, but this time use Unity Compute Shaders.
-                Moving to shaders gave me the speed I truly needed. Speeding up
-                the work simulations by 100 times and allowing for a much larger
-                simulation world size.
+                the CPU. When I was introduced to shaidng in Unity3D, I decided
+                to run Cellular Automaton using the Graphic Cards. Moving to
+                multithreading gave me the speed and scale to test various grid
+                rules.
               </p>
             </div>
-            {/* The AI Logic */}
+
+            {/* Colonial Organism */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center">
                 <span className="bg-[#d67d7d] w-8 h-1 mr-3"></span>
                 Evolution of Colonial Organism
               </h2>
+              <div className="flex item-centered justify-center p-2">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/l6Z7j8ed-gA?si=XhhNHf5dXN0lcUYK"
+                  title="YouTube video player"
+                  className="border-none" // If using Tailwind
+                  style={{ border: 0 }} // If using inline styles
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
               <p className="leading-relaxed mb-6">
                 The well-known Game of Life has a condition where each cell can
                 be alive or dead. But what if we mimic some of the complexity
@@ -144,66 +217,147 @@ export default function CellularAutomatonPage() {
                 successful offspring.
               </p>
 
-              <div className="bg-white p-6 rounded shadow-sm border-l-4 border-[#d67d7d]">
-                <h4 className="font-bold text-sm uppercase mb-4 text-gray-500">
-                  The Simulation Rules
-                </h4>
-                <ol className="list-decimal list-inside space-y-3 font-medium">
-                  <li>
-                    <span className="text-[#39352f]">Cell States:</span> Cell
-                    can be Alive: can perform actions, Dead - contains energy
-                    that can be consumed, or Empty - empty space.
-                  </li>
-                  <li>
-                    <span className="text-[#39352f]">Reproduction:</span> Cells
-                    when a cell reaches a certain threshold of energy it is
-                    containing, it reproduces into some of the neighboring cells
-                    and shares its energy with the offspring(s).
-                  </li>
-                  <li>
-                    <span className="text-[#39352f]">Functions:</span> An Alive
-                    cell can view its own energy, attack other cells, rotate,
-                    move to an empty cell, reproduce, and analyze neighboring
-                    cells.
-                  </li>
-                  <li>
-                    <span className="text-[#39352f]">Mutation:</span> During
-                    copying, a cell has a chance to mutate which can modify one
-                    or multiple genes the offspring holds.
-                  </li>
-                  <li>
-                    <span className="text-[#39352f]">
-                      Outside World Conditions:
-                    </span>{" "}
-                    The world has light from the top of the map and cells cast
-                    shadows; some conditional cells have water energy which is
-                    another source of energy the cells can evolve to consume.
-                  </li>
-                </ol>
-              </div>
-              <p>
+              <RuleTab title="The Simulation Rules">
+                <div className="space-y-8">
+                  {/* 1. Cell States - Visual Grid */}
+                  <div>
+                    <h5 className="font-bold text-[#39352f] text-sm uppercase mb-3 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#d67d7d]"></span>
+                      Cell States
+                    </h5>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 bg-gray-50 rounded border border-gray-200">
+                        <span className="text-[#d67d7d] font-bold block mb-1">
+                          Alive
+                        </span>
+                        <p className="text-sm leading-tight text-gray-600">
+                          Active agent. Can perform actions, consume energy, and
+                          reproduce.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-gray-50 rounded border border-gray-200">
+                        <span className="text-gray-500 font-bold block mb-1">
+                          Dead
+                        </span>
+                        <p className="text-sm leading-tight text-gray-600">
+                          Organic waste. Contains residual energy that living
+                          cells can consume.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-gray-50 rounded border border-gray-200">
+                        <span className="text-gray-400 font-bold block mb-1">
+                          Empty
+                        </span>
+                        <p className="text-sm leading-tight text-gray-600">
+                          Vacuum space. Available for movement or new offspring
+                          placement.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2. Functions - Badge Cloud */}
+                  <div>
+                    <h5 className="font-bold text-[#39352f] text-sm uppercase mb-3 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#d67d7d]"></span>
+                      Cell Capabilities
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "View Self Energy",
+                        "Attack Neighbor",
+                        "Rotate",
+                        "Move to Empty",
+                        "Reproduce",
+                        "Analyze Neighbors",
+                        "Photosynthesis",
+                      ].map((func) => (
+                        <span
+                          key={func}
+                          className="px-3 py-1 bg-[#e5e5e5] text-[#39352f] text-xs font-mono font-bold rounded border border-[#d1d1d1]"
+                        >
+                          {func}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 3. Mechanics - Definition List */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-white p-4 border-l-2 border-[#d67d7d] shadow-sm">
+                      <span className="block text-[#39352f] font-bold mb-1">
+                        Reproduction Logic
+                      </span>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        Triggered when energy exceeds a specific threshold. The
+                        parent divides into an empty neighbor slot, splitting
+                        its energy pool with the offspring.
+                      </p>
+                    </div>
+
+                    <div className="bg-white p-4 border-l-2 border-[#d67d7d] shadow-sm">
+                      <span className="block text-[#39352f] font-bold mb-1">
+                        Genetic Mutation
+                      </span>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        Occurs during the copying process. Random weights are
+                        applied to neural weights or behavioral genes, creating
+                        evolutionary drift.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 4. Environment */}
+                  <div className="bg-[#39352f] text-gray-300 p-5 rounded">
+                    <h5 className="font-bold text-white text-sm uppercase mb-2">
+                      Global Conditions
+                    </h5>
+                    <ul className="list-disc list-inside text-sm space-y-1 font-mono">
+                      <li>
+                        <span className="text-[#d67d7d]">Light Source:</span>{" "}
+                        Emits from top (Y=0). Cells cast dynamic shadows.
+                      </li>
+                      <li>
+                        <span className="text-[#d67d7d]">Water:</span> Static
+                        energy sources placed in world generation.
+                      </li>
+                      <li>
+                        <span className="text-[#d67d7d]">Entropy:</span> Living
+                        cells burn energy every tick.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </RuleTab>
+
+              <p className="mt-4">
                 These are general rules that can be modified adding more
                 complexity a cell can have. Over the years I have made many
                 configurations, while keeping the general rules listed above
                 mostly unchanged.
               </p>
             </div>
+
             {/* The AI Logic */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center">
                 <span className="bg-[#d67d7d] w-8 h-1 mr-3"></span>
                 AI & Genetic Algorithms
               </h2>
+              <div className="flex justify-center items-center">
+                <img
+                  src="../ca.gif"
+                  alt="Cellular Artist"
+                  className="w-auto h-auto rounded-full border-4 border-[#39352F] shadow-md mb-6"
+                />
+              </div>
               <p className="leading-relaxed mb-6">
                 This isn't just Conway's Game of Life. I implemented a genetic
                 learning model where cells attempt to reconstruct a target image
                 through evolution.
               </p>
 
-              <div className="bg-white p-6 rounded shadow-sm border-l-4 border-[#d67d7d]">
-                <h4 className="font-bold text-sm uppercase mb-4 text-gray-500">
-                  The "Learning" Cycle
-                </h4>
+              <RuleTab title="The Learning Cycle">
                 <ol className="list-decimal list-inside space-y-3 font-medium">
                   <li>
                     <span className="text-[#39352f]">Error Calculation:</span>{" "}
@@ -225,43 +379,72 @@ export default function CellularAutomatonPage() {
                     variance.
                   </li>
                 </ol>
-              </div>
+              </RuleTab>
+
+              {/* UPGRADED GITHUB LINK */}
+              <a
+                href="https://github.com/imiziuk/Cell-artist"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-8 flex items-center gap-4 p-4 border-2 border-[#39352f] rounded bg-transparent hover:bg-[#39352f] transition-all duration-300 cursor-pointer"
+              >
+                {/* GitHub Logo SVG */}
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-8 h-8 text-[#39352f] group-hover:text-white transition-colors"
+                >
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#d67d7d] group-hover:text-[#d67d7d]">
+                    Explore the Code
+                  </span>
+                  <span className="font-mono text-lg font-bold text-[#39352f] group-hover:text-white transition-colors">
+                    imiziuk/Cell-artist
+                  </span>
+                </div>
+
+                {/* Arrow Icon that moves on hover */}
+                <span className="ml-auto text-[#39352f] group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
+                  &rarr;
+                </span>
+              </a>
             </div>
 
+            {/* RGB Game of Life */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center">
                 <span className="bg-[#d67d7d] w-8 h-1 mr-3"></span>
                 Game of Life but RGB
               </h2>
+              <div className="flex item-centered justify-center p-2">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/pWhpKTOVlno?si=OIv6TYas7KUhaZ3Z"
+                  title="YouTube video player"
+                  className="border-none" // If using Tailwind
+                  style={{ border: 0 }} // If using inline styles
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
               <p className="leading-relaxed mb-6">
                 The Neil deGrasse Tyson interview about string theory, where
                 many dimensions affect each other to some extent, has motivated
                 me to implement something where we have a multidimensional
                 simulation but where one dimension effects the other similarly.
-                In other words: A &rarr; B, B &rarr; C, C &rarr; A. I wanted to
-                try with a simple Conway's Game of Life where three worlds
-                interact with each other. In each world, the rules are applied
-                the same; however, the other dimensions add a semi neighbor
-                value (0.5). Thus, while calculating neighbors, an empty cell
-                surrounded by no cells in the same dimension can become alive
-                due to the high density of cells in the other dimension. The
-                interesting aftereffect is that this creates another type of
-                cellular automaton. Where all cells are full ABC, during
-                simulation they are white (full values of RGB), and if there is
-                no single dimension value, the simulation would keep being of
-                this simulation. But if at least one cell is placed to be one
-                colored, it starts a chain reaction making the whole world
-                colored and broken (unsynced) from each other.
+                In other words: A &rarr; B, B &rarr; C, C &rarr; A.
               </p>
 
-              <div className="bg-white p-6 rounded shadow-sm border-l-4 border-[#d67d7d]">
-                <h4 className="font-bold text-sm uppercase mb-4 text-gray-500">
-                  Simulation Rules
-                </h4>
+              <RuleTab title="Simulation Rules">
                 <ol className="list-decimal list-inside space-y-3 font-medium">
                   <li>
                     <span className="text-[#39352f]">General Rules</span>{" "}
-                    <ol>
+                    <ol className="pl-6 list-[lower-alpha] mt-2 space-y-1 text-sm text-gray-700">
                       <li>
                         Any cell that has 2 or 3 living neighbors survives.
                       </li>
@@ -272,25 +455,26 @@ export default function CellularAutomatonPage() {
                       <li>All the other dead cells stay dead.</li>
                     </ol>
                   </li>
-                  <li>
+                  <li className="pt-2">
                     <span className="text-[#39352f]">
                       Calculating Neighbors
                     </span>
-                    Here we play 3 cellular Automata named R, G, and B.
-                    <ol>
-                      <li>R &larr; R </li>
-                      <li>G &larr; G </li>
-                      <li>B &larr; B </li>
-                      <li>R &larr; B * 0.5</li>
-                      <li>G &larr; R * 0.5</li>
-                      <li>B &larr; G * 0.5</li>
-                    </ol>
+                    <br />
+                    <span className="text-sm">
+                      Here we play 3 cellular Automata named R, G, and B.
+                    </span>
+                    <div className="grid grid-cols-2 gap-4 mt-2 bg-gray-50 p-3 rounded text-sm font-mono">
+                      <div>1. R &larr; R </div>
+                      <div>4. R &larr; B * 0.5</div>
+                      <div>2. G &larr; G </div>
+                      <div>5. G &larr; R * 0.5</div>
+                      <div>3. B &larr; B </div>
+                      <div>6. B &larr; G * 0.5</div>
+                    </div>
                   </li>
                 </ol>
-              </div>
+              </RuleTab>
             </div>
-
-            {/* Other Modules */}
           </section>
 
           {/* RIGHT: Visuals / Sidebar */}
@@ -301,29 +485,52 @@ export default function CellularAutomatonPage() {
                 Simulation Demo
               </label>
               <div className="aspect-video w-full bg-black rounded border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer">
-                {/* If you have a video file, replace this div with the video tag */}
-                <div className="absolute inset-0 bg-[#d67d7d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                <span className="font-mono text-xs text-center px-4">
-                  [ VIDEO PREVIEW ]<br />
-                  Click to load C++ Engine Demo
-                </span>
+                {/* Replaced placeholder div with a robust placeholder image */}
+                <img
+                  src="https://placehold.co/600x400/000000/d67d7d?text=VIDEO+PREVIEW"
+                  alt="Video Preview"
+                  className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-mono text-xs text-center px-4 bg-black/50 p-2 rounded text-[#d67d7d] border border-[#d67d7d]">
+                    <div className="flex item-centered justify-center">
+                      <iframe
+                        src="https://www.youtube.com/embed/5NXUEYfetc0?si=Cti_jboNDQbcKZys"
+                        title="YouTube video player"
+                        className="border-none" // If using Tailwind
+                        style={{ border: 0 }} // If using inline styles
+                        allowFullScreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      ></iframe>
+                    </div>
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Gallery Placeholders */}
+            {/* Gallery Section - Now with Real Images */}
             <div className="space-y-4">
               <label className="text-xs font-bold uppercase text-[#d67d7d] mb-2 block">
                 Snapshots
               </label>
-              <div className="h-32 bg-gray-800 rounded flex items-center justify-center border border-gray-700">
-                <span className="text-xs font-mono">
-                  Genetic Learning Iteration #400
-                </span>
-              </div>
-              <div className="h-32 bg-gray-800 rounded flex items-center justify-center border border-gray-700">
-                <span className="text-xs font-mono">
-                  Energy Distribution Map
-                </span>
+
+              <div className="grid grid-cols-1 gap-6">
+                {GALLERY_IMAGES.map((img) => (
+                  <div key={img.id} className="group cursor-pointer">
+                    <div className="relative overflow-hidden rounded border border-gray-600 aspect-[4/3]">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110 group-hover:opacity-90"
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-[#d67d7d] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <span className="block mt-2 text-xs font-mono text-gray-400 group-hover:text-[#d67d7d] transition-colors">
+                      {img.caption}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
