@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
 
 export default function Page() {
   return (
-    <main className="bg-[#2d2a26] min-h-screen text-[#39352f]">
+    <main className="bg-[#2d2a26] min-h-screen font-sans text-[#39352f]">
       {/* 1. Full Width Header */}
       <Header title="Ivan Miziuk" image="/bg.jpg" />
 
