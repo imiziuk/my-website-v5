@@ -474,6 +474,30 @@ export default function CellularAutomatonPage() {
                   </li>
                 </ol>
               </RuleTab>
+
+              {/* UPGRADED ITCH.IO LINK */}
+              <a
+                href="https://imiziuk.itch.io/cell-artist"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-8 flex items-center gap-4 p-4 border-2 border-[#fa5c5c] rounded bg-transparent hover:bg-[#fa5c5c] transition-all duration-300 cursor-pointer"
+              >
+                {/* itch.io Logo SVG */}
+
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#fa5c5c] group-hover:text-white">
+                    Play Online
+                  </span>
+                  <span className="font-sans text-lg font-bold text-[#39352f] group-hover:text-white transition-colors">
+                    Cell Artist on itch.io
+                  </span>
+                </div>
+
+                {/* Arrow Icon */}
+                <span className="ml-auto text-[#fa5c5c] group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
+                  &rarr;
+                </span>
+              </a>
             </div>
           </section>
 
