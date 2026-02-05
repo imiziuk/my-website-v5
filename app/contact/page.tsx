@@ -49,6 +49,14 @@ export default function ContactPage() {
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#d67d7d] opacity-10 rounded-bl-full translate-x-10 -translate-y-10"></div>
           <div></div>
           <div>
+            <div className="flex item-centered justify-center">
+              {" "}
+              <img
+                src="/mer.png"
+                alt="Ivan Miziuk"
+                className="w-45 h-45 rounded-full object-cover border-4 border-[#39352F] shadow-md mb-6"
+              />
+            </div>
             <h1 className="text-4xl font-black uppercase mb-2">Let's Talk.</h1>
             <p className="text-[#d67d7d] font-bold tracking-widest text-sm mb-8">
               OPEN TO WORK • SUMMER 2026

@@ -31,7 +31,7 @@ export default function Page() {
         {/* LEFT COLUMN: Identity (The "Who") */}
         <section className="w-full md:w-1/3 p-8 border-r border-[#b8b8b8] flex flex-col items-center text-center md:text-left">
           <img
-            src="/me.jpg"
+            src="/mer.png"
             alt="Ivan Miziuk"
             className="w-48 h-48 rounded-full object-cover border-4 border-[#39352F] shadow-md mb-6"
           />
