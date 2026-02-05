@@ -10,19 +10,19 @@ import Nav from "@/app/components/nav";
 const GALLERY_IMAGES = [
   {
     id: 1,
-    src: "../mona.png",
+    src: "/mona.png",
     alt: "Genetic Learning Iteration",
     caption: "Genetic Learning Iteration",
   },
   {
     id: 2,
-    src: "../energy.png",
+    src: "/energy.png",
     alt: "Energy Distribution Map",
     caption: "Energy Distribution Map",
   },
   {
     id: 3,
-    src: "../rgb.png",
+    src: "/rgb.png",
     alt: "RGB Cellular Interaction",
     caption: "Multi-dimensional RGB Interaction, Bird",
   },
@@ -349,7 +349,7 @@ export default function CellularAutomatonPage() {
               </h2>
               <div className="flex justify-center items-center">
                 <img
-                  src="../ca.gif"
+                  src="/ca.gif"
                   alt="Cellular Artist"
                   className="w-auto h-auto rounded-full border-4 border-[#39352F] shadow-md mb-6"
                 />
@@ -513,11 +513,7 @@ export default function CellularAutomatonPage() {
               </label>
               <div className="aspect-video w-full bg-black rounded border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer">
                 {/* Replaced placeholder div with a robust placeholder image */}
-                <img
-                  src="https://placehold.co/600x400/000000/d67d7d?text=VIDEO+PREVIEW"
-                  alt="Video Preview"
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
-                />
+
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="font-mono text-xs text-center px-4 bg-black/50 p-2 rounded text-[#d67d7d] border border-[#d67d7d]">
                     <div className="flex item-centered justify-center">

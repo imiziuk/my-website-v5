@@ -29,7 +29,7 @@ export default function Page() {
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="relative">
               <img
-                src="me.jpg"
+                src="/me.jpg"
                 alt="Ivan Miziuk"
                 className="w-48 h-48 md:w-64 md:h-64 rounded-xl object-cover border-4 border-[#39352F] shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300"
               />
@@ -81,7 +81,7 @@ export default function Page() {
             <div className="bg-[#39352f] p-2 rounded-lg shadow-lg rotate-1 hover:rotate-0 transition-all">
               {/* Fixed the double className issue here */}
               <img
-                src="gmk.png"
+                src="/gmk.png"
                 alt="Game Prototype"
                 className="w-full h-auto object-cover rounded"
               />

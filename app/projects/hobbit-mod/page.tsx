@@ -6,19 +6,19 @@ import ContactButton from "@/app/components/contact_me";
 const GALLERY_IMAGES = [
   {
     id: 1,
-    src: "../s2.png",
+    src: "/s2.png",
     alt: "Genetic Learning Iteration",
     caption: "Genetic Learning Iteration",
   },
   {
     id: 2,
-    src: "../2.png",
+    src: "/2.png",
     alt: "Energy Distribution Map",
     caption: "Energy Distribution Map",
   },
   {
     id: 3,
-    src: "../s1.png",
+    src: "/s1.png",
     alt: "RGB Cellular Interaction",
     caption: "Multi-dimensional RGB Interaction, Bird",
   },
@@ -209,11 +209,7 @@ export default function HobbitModPage() {
               </label>
               <div className="aspect-video w-full bg-black rounded border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer">
                 {/* Replaced placeholder div with a robust placeholder image */}
-                <img
-                  src="https://placehold.co/600x400/000000/d67d7d?text=VIDEO+PREVIEW"
-                  alt="Video Preview"
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
-                />
+
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="font-mono text-xs text-center px-4 bg-black/50 p-2 rounded text-[#d67d7d] border border-[#d67d7d]">
                     <div className="flex item-centered justify-center">

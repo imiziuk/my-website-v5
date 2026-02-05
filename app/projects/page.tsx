@@ -40,7 +40,7 @@ export default function ProjectsMenuPage() {
       highlight: "Memory Hooking",
       tech: ["Ghidra", "Assembly", "C++"],
       href: "/projects/hobbit-mod",
-      image: "3.png",
+      image: "/3.png",
       icon: (
         <svg
           className="w-10 h-10 text-[#d67d7d]"

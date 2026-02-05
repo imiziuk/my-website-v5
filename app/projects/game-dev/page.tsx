@@ -109,7 +109,7 @@ export default function GameDevPage() {
 
               <div className="flex justify-center items-center">
                 <img
-                  src="../win.jpeg"
+                  src="/win.jpeg"
                   alt="Cellular Artist"
                   className="w-auto h-auto border-4 border-[#39352F] shadow-md mb-6"
                 />
