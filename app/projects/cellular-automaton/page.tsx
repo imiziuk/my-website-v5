@@ -88,21 +88,24 @@ export default function CellularAutomatonPage() {
             </p>
 
             {/* "The Metric" - Front and Center */}
-            <div className="inline-flex items-center gap-4 bg-[#2d2a26] p-4 rounded border border-[#555]">
-              <div className="text-right">
-                <span className="block text-xs uppercase tracking-widest text-gray-400">
-                  Optimization Goal
-                </span>
-                <span className="block font-bold text-white">
-                  Simulation Speed and Increase Complexity
-                </span>
+            <div className="flex items-center justify-between w-full">
+              <div className="inline-flex items-center gap-4 bg-[#2d2a26] p-4 rounded border border-[#555]">
+                <div className="text-right">
+                  <span className="block text-xs uppercase tracking-widest text-gray-400">
+                    Optimization Goal
+                  </span>
+                  <span className="block font-bold text-white">
+                    Simulations Multithreading
+                  </span>
+                </div>
+                <div className="text-4xl font-black text-[#d67d7d]">100x</div>
+                <div className="text-left text-sm opacity-80 leading-tight">
+                  Speedup achieved via
+                  <br />
+                  CUDA & C++ Implementation
+                </div>
               </div>
-              <div className="text-4xl font-black text-[#d67d7d]">100x</div>
-              <div className="text-left text-sm opacity-80 leading-tight">
-                Speedup achieved via
-                <br />
-                CUDA & C++ Implementation
-              </div>
+              <ContactButton />
             </div>
           </div>
         </section>

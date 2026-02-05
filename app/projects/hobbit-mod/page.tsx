@@ -1,6 +1,7 @@
 import Header from "@/app/components/header";
 import Footing from "@/app/components/footing";
 import Nav from "@/app/components/nav";
+import ContactButton from "@/app/components/contact_me";
 // DATA: Add your real image paths here later (e.g., "/screenshots/evo1.jpg")
 const GALLERY_IMAGES = [
   {
@@ -54,21 +55,24 @@ export default function HobbitModPage() {
             </p>
 
             {/* Technical Achievement Metric */}
-            <div className="inline-flex items-center gap-4 bg-[#2d2a26] p-4 rounded border border-[#555]">
-              <div className="text-right">
-                <span className="block text-xs uppercase tracking-widest text-gray-400">
-                  Core Challenge
-                </span>
-                <span className="block font-bold text-white">
-                  Memory Analysis
-                </span>
+            <div className="flex items-center justify-between w-full">
+              <div className="inline-flex items-center gap-4 bg-[#2d2a26] p-4 rounded border border-[#555]">
+                <div className="text-right">
+                  <span className="block text-xs uppercase tracking-widest text-gray-400">
+                    Core Challenge
+                  </span>
+                  <span className="block font-bold text-white">
+                    Memory Analysis
+                  </span>
+                </div>
+                <div className="text-4xl font-black text-[#d67d7d]">RAM</div>
+                <div className="text-left text-sm opacity-80 leading-tight">
+                  Direct manipulation of
+                  <br />
+                  Process Memory & Entities
+                </div>
               </div>
-              <div className="text-4xl font-black text-[#d67d7d]">RAM</div>
-              <div className="text-left text-sm opacity-80 leading-tight">
-                Direct manipulation of
-                <br />
-                Process Memory & Entities
-              </div>
+              <ContactButton />
             </div>
           </div>
         </section>
