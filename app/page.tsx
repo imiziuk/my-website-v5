@@ -63,20 +63,36 @@ export default function Page() {
 
           {/* Core Skills Sidebar */}
           <div className="w-full space-y-4">
-            <div className="bg-[#e0e0e0] p-4 rounded border-l-4 border-[#39352f]">
+	  <div className="bg-[#e0e0e0] p-4 rounded border-l-4 border-[#39352f]">
               <span className="text-xs uppercase text-gray-500 block mb-1">
-                Core Stack
+                System & Low-Level
               </span>
               <p className="font-mono font-bold text-sm">
-                C++, CUDA, C#, Python, MariaDB, Nginx
+	      C++, CUDA, x86/64 Assembly, Memory Management, SIMD, Multi-threading
+              </p>
+            </div>
+	  <div className="bg-[#e0e0e0] p-4 rounded border-l-4 border-[#39352f]">
+              <span className="text-xs uppercase text-gray-500 block mb-1">
+                Reverse Engineering
+              </span>
+              <p className="font-mono font-bold text-sm">
+	      Ghidra, Cheat Engine, x64dbg, Static/Dynamic Analysis, Hooking, Decompilation
               </p>
             </div>
             <div className="bg-[#e0e0e0] p-4 rounded border-l-4 border-[#d67d7d]">
               <span className="text-xs uppercase text-gray-500 block mb-1">
-                Specialized Tools
+	      Game Development
               </span>
               <p className="font-mono font-bold text-sm">
-                Ghidra, Cheat Engine, Docker, Git, Unity3D
+	      Unity3D, C#, Shader Lab (HLSL), DirectX, Physics Integration
+              </p>
+            </div>
+	    <div className="bg-[#e0e0e0] p-4 rounded border-l-4 border-[#d67d7d]">
+              <span className="text-xs uppercase text-gray-500 block mb-1">
+              Bakcend & DevOps
+              </span>
+              <p className="font-mono font-bold text-sm">
+	      Python, MariaDB, Nginx, Docker, Git
               </p>
             </div>
           </div>
@@ -123,16 +139,16 @@ export default function Page() {
               className="bg-[#d1d1d1] p-4 rounded text-center block hover:bg-[#d67d7d] hover:text-white transition-all cursor-pointer border border-transparent hover:border-[#39352f]"
             >
               <span className="block text-2xl font-black text-[#39352f] group-hover:text-white">
-                1st
+                1st Place
               </span>
               <span className="text-xs uppercase opacity-70 font-bold">
-                Competition Win
+	      52-Entry Dev Contest
               </span>
             </Link>
 
             {/* Link 4: 15+ -> Portfolio/Games */}
-            <Link
-              href="/projects/game-dev"
+            <a
+              href="https://cupofgames.itch.io/" target="_blank"
               className="bg-[#d1d1d1] p-4 rounded text-center block hover:bg-[#d67d7d] hover:text-white transition-all cursor-pointer border border-transparent hover:border-[#39352f]"
             >
               <span className="block text-2xl font-black text-[#39352f] group-hover:text-white">
@@ -141,7 +157,7 @@ export default function Page() {
               <span className="text-xs uppercase opacity-70 font-bold">
                 Game Prototypes
               </span>
-            </Link>
+            </a>
           </div>
 
           <h2 className="text-2xl font-bold mb-6 flex items-center">
@@ -151,48 +167,64 @@ export default function Page() {
 
           {/* Real Project Snippets */}
           <div className="space-y-4">
-            {/* Project 1: Cellular Automaton */}
-            <div className="group p-4 bg-[#d1d1d1] hover:bg-[#d67d7d] hover:text-white transition-all cursor-pointer rounded border-l-4 border-transparent hover:border-[#39352f] shadow-sm">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="font-bold text-lg">
-                  Cellular Automaton & Machine Learning
-                </h3>
-                <span className="text-xs font-mono bg-[#39352f] text-white px-2 py-1 rounded group-hover:bg-white group-hover:text-[#39352f]">
-                  C++ / CUDA
-                </span>
-              </div>
-              <p className="text-sm opacity-80 mb-3">
-                High-performance evolution simulator. Migrated from C# to
-                CUDA/C++ for a 100x speedup, implementing AI to generate images
-                via Cellular Automata evolutionary learning.
-              </p>
-              <div className="flex gap-2 text-xs font-bold opacity-60 uppercase">
-                <span>OpenGL</span> • <span>Machine Learning</span> •{" "}
-                <span>Optimization</span> • <span>CUDA</span>
-              </div>
-            </div>
+          
+	
+	
 
-            {/* Project 2: Symchronym */}
-            <div className="group p-4 bg-[#d1d1d1] hover:bg-[#d67d7d] hover:text-white transition-all cursor-pointer rounded border-l-4 border-transparent hover:border-[#39352f] shadow-sm">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="font-bold text-lg">
-                  Symchronym (Multiplayer Mod)
-                </h3>
-                <span className="text-xs font-mono bg-[#39352f] text-white px-2 py-1 rounded group-hover:bg-white group-hover:text-[#39352f]">
-                  Reverse Engineering
-                </span>
-              </div>
-              <p className="text-sm opacity-80 mb-3">
-                Reverse-engineered multiplayer mod for{" "}
-                <em>The Hobbit (2003)</em>. Utilized Ghidra and Cheat Engine to
-                manipulate memory and implemented custom network protocols.
-              </p>
-              <div className="flex gap-2 text-xs font-bold opacity-60 uppercase">
-                <span>Assembly</span> • <span>Networking</span> •{" "}
-                <span>C/C++</span>
-              </div>
-            </div>
+  {/* Project 1: Cellular Automaton */}
+  <Link href="/projects/cellular-automaton" className="block group p-4 bg-[#d1d1d1] hover:bg-[#d67d7d] hover:text-white transition-all rounded border-l-4 border-transparent hover:border-[#39352f] shadow-sm">
+    <div className="flex justify-between items-center mb-2">
+      <h3 className="font-bold text-lg">Cellular Automaton & Machine Learning</h3>
+      <span className="text-xs font-mono bg-[#39352f] text-white px-2 py-1 rounded group-hover:bg-white group-hover:text-[#39352f]">
+        C++ / CUDA
+      </span>
+    </div>
+    <p className="text-sm opacity-80 mb-3">
+      High-performance evolution simulator. Migrated from C# to CUDA/C++ for a 100x speedup, implementing AI to generate images via Cellular Automata evolutionary learning.
+    </p>
+    <div className="flex gap-2 text-xs font-bold opacity-60 uppercase">
+      <span>OpenGL</span> • <span>Machine Learning</span> • <span>Optimization</span> • <span>CUDA</span>
+    </div>
+  </Link>
+
+  {/* Project 2: Symchronym */}
+  <Link href="/projects/hobbit-mod" className="block group p-4 bg-[#d1d1d1] hover:bg-[#d67d7d] hover:text-white transition-all rounded border-l-4 border-transparent hover:border-[#39352f] shadow-sm">
+    <div className="flex justify-between items-center mb-2">
+      <h3 className="font-bold text-lg">Symchronym (Multiplayer Mod)</h3>
+      <span className="text-xs font-mono bg-[#39352f] text-white px-2 py-1 rounded group-hover:bg-white group-hover:text-[#39352f]">
+        Reverse Engineering
+      </span>
+    </div>
+    <p className="text-sm opacity-80 mb-3">
+      Reverse-engineered multiplayer mod for <em>The Hobbit (2003)</em>. Utilized Ghidra and Cheat Engine to manipulate memory and implemented custom network protocols.
+    </p>
+    <div className="flex gap-2 text-xs font-bold opacity-60 uppercase">
+      <span>Assembly</span> • <span>Networking</span> • <span>C/C++</span>
+    </div>
+  </Link>
+
+  {/* Project 3: Game Dev */}
+  {/* Fixed: Updated href from hobbit-mod to chronoment */}
+  <Link href="/projects/chronoment" className="block group p-4 bg-[#d1d1d1] hover:bg-[#d67d7d] hover:text-white transition-all rounded border-l-4 border-transparent hover:border-[#39352f] shadow-sm">
+    <div className="flex justify-between items-center mb-2">
+      <h3 className="font-bold text-lg">Chronoment</h3>
+      <span className="text-xs font-mono bg-[#39352f] text-white px-2 py-1 rounded group-hover:bg-white group-hover:text-[#39352f]">
+        Game Development
+      </span>
+    </div>
+    <p className="text-sm opacity-80 mb-3">
+      Developed Video Game in a short period of 3 days. Scripting the game, coordinating with the team, and composing music for the game. Published game on itch.io platform.
+    </p>
+    <div className="flex gap-2 text-xs font-bold opacity-60 uppercase">
+      <span>Unity3D</span> • <span>Music Composer</span> • <span>Group Leader</span>
+    </div>
+  </Link>
+	
+
+
+
           </div>
+
         </section>
       </div>
       <Footing />

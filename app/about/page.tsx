@@ -34,7 +34,7 @@ export default function Page() {
                 className="w-48 h-48 md:w-64 md:h-64 rounded-xl object-cover border-4 border-[#39352F] shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300"
               />
               <div className="absolute -bottom-4 -right-4 bg-[#d67d7d] text-white px-4 py-1 font-bold text-sm shadow-sm rotate-2">
-                CSU Chico '26
+                CSU Chico '27
               </div>
             </div>
 

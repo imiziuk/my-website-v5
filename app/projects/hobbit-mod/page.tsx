@@ -7,20 +7,20 @@ const GALLERY_IMAGES = [
   {
     id: 1,
     src: "/s2.png",
-    alt: "Genetic Learning Iteration",
-    caption: "Genetic Learning Iteration",
+    alt: "PvP",
+    caption: "PvP mode",
   },
   {
     id: 2,
     src: "/2.png",
-    alt: "Energy Distribution Map",
-    caption: "Energy Distribution Map",
+    alt: "Reverse Engineering Process",
+    caption: "Reverse Engineering Process",
   },
   {
     id: 3,
     src: "/s1.png",
-    alt: "RGB Cellular Interaction",
-    caption: "Multi-dimensional RGB Interaction, Bird",
+    alt: "Multiplayer Screenshot",
+    caption: "Multiplayer Screenshot",
   },
 ];
 
@@ -205,7 +205,7 @@ export default function HobbitModPage() {
             {/* Video Placeholder */}
             <div>
               <label className="text-xs font-bold uppercase text-[#d67d7d] mb-2 block">
-                Simulation Demo
+                Multiplayer Demo
               </label>
               <div className="aspect-video w-full bg-black rounded border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer">
                 {/* Replaced placeholder div with a robust placeholder image */}
@@ -255,10 +255,7 @@ export default function HobbitModPage() {
 
             {/* Call to Action */}
             <div className="mt-auto pt-8 border-t border-gray-600">
-              <p className="text-sm italic opacity-70 mb-4">
-                "Cellular Automata is the perfect puzzle for multi-threaded
-                implementation."
-              </p>
+          
               <a
                 href="/contact"
                 className="block w-full text-center bg-[#d67d7d] text-white font-bold py-3 rounded hover:bg-white hover:text-[#39352f] transition-colors"
