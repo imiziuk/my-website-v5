@@ -5,7 +5,6 @@ import Header from "@/app/components/header";
 import Footing from "@/app/components/footing";
 import ContactButton from "@/app/components/contact_me";
 import Nav from "@/app/components/nav";
-import RgbCellularAutomaton from '@/app/components/RgbCellularAutomaton';
 
 // DATA: Add your real image paths here later (e.g., "/screenshots/evo1.jpg")
 const GALLERY_IMAGES = [
@@ -417,7 +416,7 @@ export default function CellularAutomatonPage() {
             </div>
 
             {/* RGB Game of Life */}
-            <div id="rgb-life">
+            <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center">
                 <span className="bg-[#d67d7d] w-8 h-1 mr-3"></span>
                 Game of Life but RGB
@@ -478,9 +477,29 @@ export default function CellularAutomatonPage() {
                 </ol>
               </RuleTab>
 
+              {/* UPGRADED ITCH.IO LINK */}
+              <a
+                href="https://imiziuk.itch.io/cell-artist"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-8 flex items-center gap-4 p-4 border-2 border-[#fa5c5c] rounded bg-transparent hover:bg-[#fa5c5c] transition-all duration-300 cursor-pointer"
+              >
+                {/* itch.io Logo SVG */}
 
-      <RgbCellularAutomaton />
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#fa5c5c] group-hover:text-white">
+                    Play Online
+                  </span>
+                  <span className="font-sans text-lg font-bold text-[#39352f] group-hover:text-white transition-colors">
+                    Cell Artist on itch.io
+                  </span>
+                </div>
 
+                {/* Arrow Icon */}
+                <span className="ml-auto text-[#fa5c5c] group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
+                  &rarr;
+                </span>
+              </a>
             </div>
           </section>
 
